@@ -17,7 +17,6 @@ function useLocalStorage(
   const { serealize = JSON.parse, deserealize = JSON.stringify } = config;
   const [value, setValue] = useState(() => {
     if (doesLocalStorageExist()) {
-      console.log("EVER EVEN CALLED?");
       const localStorageValue = localStorage.getItem(key);
       if (localStorageValue) {
         return serealize(localStorageValue);
@@ -25,14 +24,13 @@ function useLocalStorage(
       return typeof initialValue === "function" ? initialValue() : initialValue;
     }
   });
-
+  console.log("FROM LOCAL", { value });
   const prevKeyRef = useRef("");
 
   useEffect(() => {
     if (prevKeyRef.current !== key) {
       localStorage.removeItem(prevKeyRef.current);
     }
-    console.log("YOU HERE BRIU?");
     localStorage.setItem(key, deserealize(value));
     prevKeyRef.current = key;
   }, [value, key, deserealize]);

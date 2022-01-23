@@ -1,18 +1,19 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 class MyDocument extends Document {
   render() {
-    const setInitialTheme = `
-      function getUserPreference() {
-        if(window.localStorage.getItem('theme')) {
-          return window.localStorage.getItem('theme')
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches 
-          ? 'dark' 
-          : 'light'
-      }
-      document.body.dataset.theme = getUserPreference();
-    `;
+    // const setInitialTheme = `
+    //   function getUserPreference() {
+    //     if(window.localStorage.getItem('theme')) {
+    //       return window.localStorage.getItem('theme')
+    //     }
+    //     return window.matchMedia('(prefers-color-scheme: dark)').matches
+    //       ? 'dark'
+    //       : 'light'
+    //   }
+    //   document.body.dataset.theme = getUserPreference();
+    // `;
     return (
       <Html>
         <Head>
@@ -22,9 +23,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=optional"
             rel="stylesheet"
           />
+          <script src="/theme.js" type="text/javascript" />
         </Head>
         <body>
-          <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
           <Main />
           <NextScript />
         </body>

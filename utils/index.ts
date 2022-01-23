@@ -1,3 +1,4 @@
+import { themes } from "../constants";
 const doesWindowExist = () => {
   return typeof window !== "undefined";
 };
@@ -16,4 +17,23 @@ const doesDocumentExist = () => {
   return false;
 };
 
-export { doesWindowExist, doesLocalStorageExist, doesDocumentExist };
+const setCSSVars = (property: string, value: string): void => {
+  if (doesDocumentExist()) {
+    document.documentElement.style.setProperty(property, value);
+  }
+};
+
+const applyTheme = (currentTheme: string) => {
+  const themeStyles = themes[currentTheme];
+  for (let key in themeStyles) {
+    setCSSVars(key, themeStyles[key]);
+  }
+  document.body.dataset.theme = currentTheme;
+};
+
+export {
+  doesWindowExist,
+  doesLocalStorageExist,
+  doesDocumentExist,
+  applyTheme,
+};

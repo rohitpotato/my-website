@@ -1,6 +1,12 @@
-import { createContext, FC, useContext, useEffect, useMemo } from "react";
+import React, {
+  createContext,
+  FC,
+  useContext,
+  useEffect,
+  useMemo,
+} from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { doesDocumentExist } from "../utils";
+import { applyTheme } from "../utils";
 
 const ThemeContext = createContext({
   currentTheme: "",
@@ -17,16 +23,15 @@ const useTheme = () => {
 };
 
 const ThemeProvider: FC = ({ children }) => {
+  console.log(typeof document !== "undefined" && document.body.dataset.theme);
   const [currentTheme, setCurrentTheme] = useLocalStorage(
     "theme",
-    doesDocumentExist() ? document?.body?.dataset?.theme : "light"
+    typeof window !== "undefined" ? document?.body?.dataset?.theme : null
   );
 
   useEffect(() => {
-    if (doesDocumentExist()) {
-      document.body.dataset.theme = currentTheme;
-      setCurrentTheme(currentTheme);
-    }
+    applyTheme(currentTheme);
+    setCurrentTheme(currentTheme);
   }, [currentTheme, setCurrentTheme]);
 
   const value = useMemo(
@@ -36,7 +41,6 @@ const ThemeProvider: FC = ({ children }) => {
     }),
     [currentTheme, setCurrentTheme]
   );
-  console.log("value", value);
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
