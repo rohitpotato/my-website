@@ -1,13 +1,19 @@
 import React from "react";
 import Header from "../Header";
+import Hero from "../Hero";
+import Experience from "../Experience";
 import containerCss from "./Container.module.css";
 
 interface Props {}
 
-const Container: React.FC<Props> = () => {
+const Container: React.FC = () => {
   return (
-    <div className={containerCss.container}>
+    <div>
       <Header />
+      <div className={containerCss.heroContainer}>
+        <Hero />
+        <Experience />
+      </div>
     </div>
   );
 };

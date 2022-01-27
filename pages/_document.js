@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=optional"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&family=Poppins:wght@100;400;500&display=swap"
             rel="stylesheet"
           />
           <script src="/theme.js" type="text/javascript" />

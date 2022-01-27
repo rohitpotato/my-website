@@ -1,0 +1,13 @@
+.heading {
+  color: var(--color-text-primary);
+  font-size: 3rem;
+  line-height: 4rem;
+  font-weight: bold;
+}
+
+.subHeading {
+  font-size: 1.25rem;
+  line-height: 30px;
+  color: var(--color-text-primary);
+  margin-top: 1rem;
+}

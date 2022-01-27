@@ -9,8 +9,9 @@
       "--color-text-primary": "#f0f0f0",
     },
     light: {
-      "--color-bg-primary": "#ecedfd",
-      "--color-text-primary": "#444444",
+      "--color-bg-primary": "#ffffff",
+      "--color-text-primary": "#565656",
+      "--color-heading-primary": "#92E3A9",
     },
   };
 

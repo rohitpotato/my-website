@@ -1,19 +1,27 @@
 .container {
   display: flex;
-  gap: 5rem;
-  padding: 3rem 0;
+  gap: 4rem;
+  padding: 2rem 8rem;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: bold;
+  color: var(--color-heading-primary);
+}
+
+.links {
+  margin-left: auto;
+  display: flex;
+  gap: 4rem;
 }
 
 .link {
   color: var(--color-text-primary);
   text-decoration: none;
   font-weight: 600;
-}
-
-.link:nth-child(1) {
-  margin-left: auto;
-}
-
-.link:hover {
-  text-decoration: underline;
+  font-size: 1rem;
+  line-height: 27px;
 }

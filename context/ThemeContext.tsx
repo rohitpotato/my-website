@@ -1,19 +1,25 @@
 import React, {
   createContext,
   FC,
+  SetStateAction,
   useContext,
   useEffect,
   useMemo,
 } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { applyTheme } from "../utils";
+import { applyTheme, doesDocumentExist } from "../utils";
 
 const ThemeContext = createContext({
   currentTheme: "",
   setCurrentTheme: () => {},
 });
 
-const useTheme = () => {
+interface useTheme {
+  currentTheme: string;
+  setCurrentTheme: React.Dispatch<SetStateAction<string>>;
+}
+
+const useTheme = (): useTheme => {
   const themeProps = useContext(ThemeContext);
   if (!themeProps) {
     throw new Error("Cannot find context!");
@@ -23,10 +29,9 @@ const useTheme = () => {
 };
 
 const ThemeProvider: FC = ({ children }) => {
-  console.log(typeof document !== "undefined" && document.body.dataset.theme);
   const [currentTheme, setCurrentTheme] = useLocalStorage(
     "theme",
-    typeof window !== "undefined" ? document?.body?.dataset?.theme : null
+    doesDocumentExist() ? document?.body?.dataset?.theme : null
   );
 
   useEffect(() => {
