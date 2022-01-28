@@ -1,0 +1,14 @@
+.container {
+  margin: var(--spacer-margin);
+}
+
+.projectsContainer {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.projectsContainer > * {
+  max-width: 100%;
+}

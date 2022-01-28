@@ -1,28 +1,47 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useMemo, useRef, useState } from "react";
 
-const TabsContext = React.createContext();
+interface TabsProps {
+  lazy?: "keepMounted" | boolean;
+  initialIndex?: number;
+}
 
-const getValidChildren = (children) => {
+const TabsContext = React.createContext<TabsProps>({
+  lazy: false,
+  initialIndex: 0,
+});
+
+const getValidChildren = (children: React.ReactNode): React.ReactNode => {
   return React.Children.map(children, (child) => {
     return React.isValidElement(child) ? child : null;
   });
 };
 
-const useTabContext = () => {
+interface TabContext {
+  activeIndex: number;
+  lazy: boolean | string;
+  setActiveIndex: Function;
+}
+
+const useTabContext = (): TabContext => {
   const context = useContext(TabsContext);
   if (!context) {
     throw new Error("Need context");
   }
-  return context;
+  const { activeIndex, lazy, setActiveIndex } = context;
+  return { activeIndex, lazy, setActiveIndex };
 };
 
-const Tabs = ({ children, lazy = false, initialIndex = 0 }) => {
+const Tabs: React.FC<TabsProps> = (props) => {
+  const { children, lazy = false, initialIndex = 0 } = props;
   const [activeIndex, setActiveIndex] = useState(initialIndex);
-  const values = {
-    lazy,
-    activeIndex,
-    setActiveIndex,
-  };
+  const values = useMemo(
+    () => ({
+      lazy,
+      activeIndex,
+      setActiveIndex,
+    }),
+    [activeIndex, lazy]
+  );
 
   return (
     <TabsContext.Provider value={values}>
@@ -31,24 +50,34 @@ const Tabs = ({ children, lazy = false, initialIndex = 0 }) => {
   );
 };
 
-const TabList = ({ children, ...props }) => {
+const TabList: React.FC = ({ children, ...rest }) => {
   const validChildren = getValidChildren(children);
   const childrenWithProps = React.Children.map(
     validChildren,
     (child, index) => {
-      return React.cloneElement(child, {
+      return React.cloneElement(child as React.ReactElement<any>, {
         index,
       });
     }
   );
   return (
-    <div style={{ display: "flex", gap: "1rem" }} {...props}>
+    <div style={{ display: "flex", gap: "1rem" }} {...rest}>
       {childrenWithProps}
     </div>
   );
 };
 
-const Tab = ({ children, index, selectedStyles, ...props }) => {
+interface TabProps {
+  index: number;
+  selectedStyles: React.CSSProperties;
+}
+
+const Tab: React.FC<TabProps> = ({
+  children,
+  index,
+  selectedStyles,
+  ...rest
+}) => {
   const { setActiveIndex, activeIndex } = useTabContext();
   const onClick = () => {
     setActiveIndex(index);
@@ -59,34 +88,43 @@ const Tab = ({ children, index, selectedStyles, ...props }) => {
       onClick={onClick}
       role="button"
       style={{ cursor: "pointer", ...stylesIfSelected }}
-      {...props}
+      {...rest}
     >
       {children}
     </div>
   );
 };
 
-const TabPanels = ({ children, ...props }) => {
+const TabPanels: React.FC = ({ children, ...rest }) => {
   const validChildren = React.Children.map(
     getValidChildren(children),
     (child, index) => {
-      return React.cloneElement(child, {
+      return React.cloneElement(child as React.ReactElement<any>, {
         index,
       });
     }
   );
   return (
-    <div style={{ display: "block" }} {...props}>
+    <div style={{ display: "block" }} {...rest}>
       {validChildren}
     </div>
   );
 };
 
-const TabPanel = ({ children, index, ...props }) => {
+interface TabPanelProps {
+  index: number;
+}
+
+const TabPanel: React.FC<TabPanelProps> = ({ children, index, ...props }) => {
   const { activeIndex, lazy } = useTabContext();
-  const isHidden = activeIndex !== index;
+  const hasBeenSelected = useRef(false);
+  const selected = activeIndex === index;
+  if (selected) {
+    hasBeenSelected.current === true;
+  }
+
   const shouldRenderChildren = () => {
-    if (activeIndex === index) {
+    if (selected) {
       return true;
     }
 
@@ -94,10 +132,14 @@ const TabPanel = ({ children, index, ...props }) => {
       return true;
     }
 
+    if (hasBeenSelected && lazy === "keepMounted") {
+      return true;
+    }
+
     return false;
   };
   return (
-    <div style={{ display: isHidden ? "none" : "block" }} {...props}>
+    <div style={{ display: !selected ? "none" : "block" }} {...props}>
       {shouldRenderChildren() && children}
     </div>
   );

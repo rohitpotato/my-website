@@ -25,3 +25,15 @@
   font-size: 1rem;
   line-height: 27px;
 }
+
+@media (max-width: 1140px) {
+  .container {
+    padding: 2rem 6rem;
+  }
+}
+
+@media (max-width: 1140px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+}

@@ -1,5 +1,5 @@
 .container {
-  margin: 19rem 0;
+  margin: var(--spacer-margin);
 }
 
 .experienceTab {
@@ -8,7 +8,7 @@
 
 .tabList {
   gap: 1.5rem !important;
-  border-bottom: 2px solid var(--color-text-primary);
+  border-bottom: 2px solid var(--border-color);
 }
 
 .tab {
@@ -27,7 +27,7 @@
 }
 
 .tab .selected {
-  border: 2px solid var(--color-text-primary);
+  border: 2px solid var(--border-color);
 }
 
 .tabPanel {
@@ -37,5 +37,5 @@
 .panel {
   padding: 1.5rem;
   width: 100%;
-  border: 2px solid var(--color-text-primary);
+  border: 2px solid var(--border-color);
 }

@@ -23,6 +23,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&family=Poppins:wght@100;400;500&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap"
+            rel="stylesheet"
+          />
           <script src="/theme.js" type="text/javascript" />
         </Head>
         <body>

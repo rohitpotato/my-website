@@ -7,11 +7,15 @@
     dark: {
       "--color-bg-primary": "#222222",
       "--color-text-primary": "#f0f0f0",
+      "--spacer-margin": "19rem 0",
+      "--border-color": "#ebebeb80",
     },
     light: {
       "--color-bg-primary": "#ffffff",
       "--color-text-primary": "#565656",
       "--color-heading-primary": "#92E3A9",
+      "--spacer-margin": "19rem 0",
+      "--border-color": "#000000",
     },
   };
 

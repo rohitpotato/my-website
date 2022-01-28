@@ -2,3 +2,15 @@
   margin: 9.5rem auto;
   width: 60%;
 }
+
+@media (max-width: 1140px) {
+  .heroContainer {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    width: 90%;
+  }
+}

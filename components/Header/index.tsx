@@ -8,9 +8,12 @@ const Header: React.FC = () => {
     <div className={headerCss.container}>
       <div className={headerCss.logo}>RK</div>
       <div className={headerCss.links}>
-        {links.map(({ name, link, target = "_self" }) => (
+        {links.map(({ name, link, target = "_self", class: className }) => (
           <Link href={link} passHref key={name}>
-            <a target={target} className={headerCss.link}>
+            <a
+              target={target}
+              className={[headerCss.link, className].join(" ")}
+            >
               {name}
             </a>
           </Link>

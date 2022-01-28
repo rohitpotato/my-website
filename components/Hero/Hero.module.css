@@ -6,20 +6,22 @@
 }
 
 .heroText {
-  color: var(--color-heading-primary);
+  color: var(--color-text-primary);
   font-size: 3rem;
   line-height: 4rem;
   font-weight: bold;
+  font-family: "Playfair Display SC", serif;
 }
 
 .heroContainer {
   display: flex;
   margin: 6.25rem 0 4rem 0;
-  border: 2px solid var(--color-heading-primary);
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   padding: 5.5rem 3rem;
   align-items: center;
   gap: 2.625rem;
+  width: 100%;
 }
 
 .heroContainer > * {
@@ -35,4 +37,14 @@
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;
+}
+
+@media (max-width: 980px) {
+  .heroContainer {
+    flex-direction: column-reverse;
+  }
+
+  .heroContainer > * {
+    width: 100%;
+  }
 }

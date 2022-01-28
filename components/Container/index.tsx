@@ -3,8 +3,7 @@ import Header from "../Header";
 import Hero from "../Hero";
 import Experience from "../Experience";
 import containerCss from "./Container.module.css";
-
-interface Props {}
+import Projects from "../Projects";
 
 const Container: React.FC = () => {
   return (
@@ -13,6 +12,7 @@ const Container: React.FC = () => {
       <div className={containerCss.heroContainer}>
         <Hero />
         <Experience />
+        <Projects />
       </div>
     </div>
   );

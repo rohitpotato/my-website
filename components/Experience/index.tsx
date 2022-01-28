@@ -10,7 +10,7 @@ const Experience: React.FC = () => {
         subHeading="Companies, I’ve worked for so far.."
       />
       <div className={css.experienceTab}>
-        <Tabs>
+        <Tabs initialIndex={2}>
           <TabList className={css.tabList}>
             <Tab
               selectedStyles={{
@@ -48,7 +48,14 @@ const Experience: React.FC = () => {
             <TabPanel className={css.panel}>
               This is tab Falabella boi!
             </TabPanel>
-            <TabPanel className={css.panel}>This is tab 2gethr boi</TabPanel>
+            <TabPanel className={css.panel}>
+              <span style={{ color: "var(--color-text-primary)" }}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                earum fugiat officiis ratione nisi facilis, voluptas in illum
+                nam ipsam similique totam enim dolorum illo sed obcaecati.
+                Pariatur, temporibus voluptate.
+              </span>
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </div>
