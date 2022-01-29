@@ -1,0 +1,28 @@
+.container {
+  margin: var(--spacer-margin) 0;
+}
+
+.contactContainer {
+  margin-top: 5rem;
+}
+
+.contactButtons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.contactButton {
+  border-radius: 4px;
+  background: var(--button-gradient);
+  text-align: center;
+  color: var(--color-text-primary);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.paraText {
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--color-text-primary);
+}

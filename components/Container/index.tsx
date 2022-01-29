@@ -4,6 +4,8 @@ import Hero from "../Hero";
 import Experience from "../Experience";
 import containerCss from "./Container.module.css";
 import Projects from "../Projects";
+import Blogs from "../Blogs";
+import Contact from "../Contact";
 
 const Container: React.FC = () => {
   return (
@@ -13,6 +15,8 @@ const Container: React.FC = () => {
         <Hero />
         <Experience />
         <Projects />
+        <Blogs />
+        <Contact />
       </div>
     </div>
   );

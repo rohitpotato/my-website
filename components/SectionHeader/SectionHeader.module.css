@@ -1,13 +1,13 @@
 .heading {
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   line-height: 4rem;
   font-weight: bold;
   font-family: "Playfair Display SC", serif;
 }
 
 .subHeading {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 30px;
   color: var(--color-text-primary);
   margin-top: 1rem;

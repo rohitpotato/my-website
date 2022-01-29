@@ -2,28 +2,28 @@ const links = [
   {
     name: "Experience",
     link: "#experience",
-    class: "#experience",
+    class: "experience",
   },
   {
     name: "Projects",
     link: "#projects",
-    class: "#projects",
+    class: "projects",
   },
   {
     name: "Blogs",
     link: "#blogs",
-    class: "#blogs",
+    class: "blogs",
   },
   {
     name: "Resume",
     link: "#resume",
     target: "_blank",
-    class: "#resume",
+    class: "resume",
   },
   {
     name: "Contact",
     link: "#contact",
-    class: "#contact",
+    class: "contact",
   },
 ];
 

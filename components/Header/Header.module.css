@@ -1,21 +1,28 @@
 .container {
   display: flex;
-  gap: 4rem;
+  /* gap: 4rem; */
   padding: 2rem 8rem;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
   font-size: 2rem;
   line-height: 3rem;
   font-weight: bold;
-  color: var(--color-heading-primary);
+  background: var(--button-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .links {
   margin-left: auto;
   display: flex;
   gap: 4rem;
+  align-items: center;
 }
 
 .link {
@@ -26,14 +33,47 @@
   line-height: 27px;
 }
 
+.menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media (max-width: 1140px) {
   .container {
     padding: 2rem 6rem;
   }
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 940px) {
   .container {
     padding: 2rem 2rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .experience,
+  .blogs,
+  .projects {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .container {
+    gap: 1rem;
+  }
+
+  .links {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact {
+    display: none;
   }
 }
