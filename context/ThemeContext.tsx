@@ -29,10 +29,7 @@ const useTheme = (): useTheme => {
 };
 
 const ThemeProvider: FC = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useLocalStorage(
-    "theme",
-    doesDocumentExist() ? document?.body?.dataset?.theme : null
-  );
+  const [currentTheme, setCurrentTheme] = useLocalStorage("theme", "dark");
 
   useEffect(() => {
     applyTheme(currentTheme);

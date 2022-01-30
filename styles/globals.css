@@ -4,6 +4,12 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  /* scroll-snap-type: y mandatory; */
+}
+
 body {
   background: var(--color-bg-primary);
   min-height: 100%;
@@ -29,6 +35,13 @@ body {
     #11d6e2 91.04%,
     #10d7e2 97.48%
   );
+}
+
+.body > #experience,
+#blogs,
+#contact,
+#projects {
+  scroll-snap-align: start;
   scroll-margin: 112px;
 }
 

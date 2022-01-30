@@ -4,10 +4,10 @@ const withImages = require("next-images");
 
 const nextConfig = {
   reactStrictMode: true,
-  // images: {
-  //   domains: ["http://localhost"],
-  // },
+  images: {
+    domains: ["res.cloudinary.com", "rohitpotato.hashnode.dev"],
+  },
 };
 
-// module.exports = withPlugins([[withImages]], nextConfig);
-module.exports = nextConfig;
+module.exports = withPlugins([[withImages]], nextConfig);
+// module.exports = nextConfig;

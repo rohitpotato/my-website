@@ -39,3 +39,11 @@
   width: 100%;
   border: 2px solid var(--border-color);
 }
+
+.list {
+  list-style-type: none;
+}
+
+.list li {
+  margin-bottom: 12px;
+}

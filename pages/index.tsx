@@ -1,12 +1,15 @@
 import type { GetStaticPropsResult, NextPage } from "next";
 import Container from "../components/Container";
+import { AppProvider } from "../context/AppContext";
 import { IndexPageProps } from "../types";
 
 const Home: NextPage<IndexPageProps> = (props) => {
   const { data } = props;
   return (
     <div>
-      <Container />
+      <AppProvider values={data}>
+        <Container />
+      </AppProvider>
     </div>
   );
 };

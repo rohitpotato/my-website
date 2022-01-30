@@ -1,27 +1,41 @@
 interface experience {
-  title: string;
+  company: string;
   duration: string;
-  image: string;
-  points: Array<string>;
+  logo: string;
+  list: Array<string>;
+  designation: string;
 }
 
-interface blogpost {
+export interface blogpost {
   title: string;
-  image: string;
+  imageLink: string;
   link: string;
   description: string;
 }
 
+export interface projects {
+  title: string;
+  imageLink: string;
+  link: string;
+  description: string;
+}
 export interface configApiResponse {
   name: string;
+  aboutMe: string;
+  preferredTheme: "dark" | "light";
+  footerText: string;
+  activeExperienceTab: string | number;
+  heroImage: string;
   contact: {
     linkedin: string;
     twitter: string;
     github: string;
     email: string;
+    phone: string;
   };
   experience: Array<experience>;
   blogs: Array<blogpost>;
+  projects: Array<projects>;
   version: number;
 }
 

@@ -1,8 +1,17 @@
 import Image from "next/image";
+import { useAppContext } from "../../context/AppContext";
 import SectionHeader from "../SectionHeader";
 import css from "./Contact.module.css";
 
+const contactMap = {
+  github: "/icons/github.svg",
+  linkedin: "icons/linkedin.svg",
+  twitter: "/icons/twitter.svg",
+};
+
 const Contact: React.FC = () => {
+  const { contact } = useAppContext();
+  const contactTypes = Object.keys(contact);
   return (
     <div id="contact" className={css.container}>
       <SectionHeader
@@ -10,33 +19,31 @@ const Contact: React.FC = () => {
         subHeading="Let’s work together & I’ll help you by all my best.."
       />
       <div className={css.contactContainer}>
-        <a className={css.paraText}>rohit.mmm1996@gmail.com</a>
-        <a className={css.paraText}>91 79057 81778</a>
+        <a href={`mailto:${contact.email}`} className={css.paraText}>
+          {contact.email}
+        </a>
+        <a href={`tel:${contact.phone}`} className={css.paraText}>
+          91 79057 81778
+        </a>
         <div className={css.contactButtons}>
-          <a target="_blank" className={css.contactButton}>
-            <Image
-              height={32}
-              width={32}
-              alt="contact-icon"
-              src={"/icons/github.svg"}
-            />
-          </a>
-          <a target="_blank" className={css.contactButton}>
-            <Image
-              height={32}
-              width={32}
-              alt="contact-icon"
-              src={"/icons/linkedin.svg"}
-            />
-          </a>
-          <a target="_blank" className={css.contactButton}>
-            <Image
-              height={32}
-              width={32}
-              alt="contact-icon"
-              src={"/icons/twitter.svg"}
-            />
-          </a>
+          {contactTypes.map((key = "") => {
+            return contactMap[key] ? (
+              <a
+                key={key}
+                target="_blank"
+                href={contact[key]}
+                className={css.contactButton}
+                rel="noreferrer"
+              >
+                <Image
+                  height={32}
+                  width={32}
+                  alt="contact-icon"
+                  src={`/icons/${contactMap[key]}.svg`}
+                />
+              </a>
+            ) : null;
+          })}
         </div>
       </div>
     </div>

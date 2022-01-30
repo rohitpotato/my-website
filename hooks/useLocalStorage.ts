@@ -18,13 +18,17 @@ function useLocalStorage(
   const [value, setValue] = useState(() => {
     if (doesLocalStorageExist()) {
       const localStorageValue = localStorage.getItem(key);
-      if (localStorageValue) {
+      if (
+        localStorageValue &&
+        localStorageValue !== "undefined" &&
+        localStorageValue !== "null"
+      ) {
         return serealize(localStorageValue);
       }
       return typeof initialValue === "function" ? initialValue() : initialValue;
     }
+    return initialValue;
   });
-  console.log("FROM LOCAL", { value });
   const prevKeyRef = useRef("");
 
   useEffect(() => {

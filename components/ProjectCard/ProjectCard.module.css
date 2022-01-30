@@ -2,9 +2,14 @@
   width: 100%;
 }
 
+.projectLink {
+  text-decoration: none;
+}
+
 .projectDetailsContainer {
   width: 100%;
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  border-top: none;
   padding: 1.5rem 2rem;
 }
 
