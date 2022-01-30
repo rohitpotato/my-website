@@ -13,10 +13,7 @@
 }
 
 .tab {
-  background: #ffffff;
   border-radius: 4px;
-  height: 80px;
-  width: 160px;
   display: flex;
   align-items: center;
   justify-items: center;
@@ -29,6 +26,8 @@
 
 .tab .selected {
   border: 2px solid var(--border-color);
+  background: var(--button-gradient);
+  color: white;
 }
 
 .tabPanel {

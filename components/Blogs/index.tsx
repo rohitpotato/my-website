@@ -4,7 +4,7 @@ import { ProjectCard } from "../ProjectCard";
 
 const Blogs: React.FC = () => {
   return (
-    <div className={css.container}>
+    <div id="blogs" className={css.container}>
       <SectionHeader
         heading="Blogs"
         subHeading="Ready to see some writing..?"

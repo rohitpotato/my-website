@@ -29,6 +29,7 @@ body {
     #11d6e2 91.04%,
     #10d7e2 97.48%
   );
+  scroll-margin: 112px;
 }
 
 @media (max-width: 900px) {

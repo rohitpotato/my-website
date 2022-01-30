@@ -4,7 +4,7 @@ import css from "./Experience.module.css";
 
 const Experience: React.FC = () => {
   return (
-    <div className={css.container}>
+    <div id="experience" className={css.container}>
       <SectionHeader
         heading="Experience"
         subHeading="Companies, I’ve worked for so far.."

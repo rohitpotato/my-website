@@ -19,9 +19,9 @@ const Hero: React.FC = () => {
           alt="hero-image"
         />
       </div>
-      <button className={css.cta} type="button">
+      <a href="#contact" className={css.cta} role="button">
         Let's Talk
-      </button>
+      </a>
     </div>
   );
 };

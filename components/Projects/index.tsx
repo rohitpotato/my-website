@@ -4,7 +4,7 @@ import { ProjectCard } from "../ProjectCard";
 
 const Projects: React.FC = () => {
   return (
-    <div>
+    <div id="projects">
       <SectionHeader
         heading="PROJECTS"
         subHeading="Ready to see my work? Let’s dive into something good.."

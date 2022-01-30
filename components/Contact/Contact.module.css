@@ -14,6 +14,8 @@
 
 .contactButton {
   border-radius: 4px;
+  height: 32px;
+  width: 32px;
   background: var(--button-gradient);
   text-align: center;
   color: var(--color-text-primary);
@@ -25,4 +27,11 @@
   font-size: 20px;
   line-height: 30px;
   color: var(--color-text-primary);
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .paraText {
+    font-size: 14px;
+  }
 }
