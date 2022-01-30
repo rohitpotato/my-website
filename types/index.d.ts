@@ -20,7 +20,7 @@ export interface projects {
   description: string;
 }
 export interface configApiResponse {
-  name: string;
+  title: string;
   aboutMe: string;
   preferredTheme: "dark" | "light";
   footerText: string;

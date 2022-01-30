@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     domains: ["res.cloudinary.com", "rohitpotato.hashnode.dev"],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = withPlugins([[withImages]], nextConfig);
