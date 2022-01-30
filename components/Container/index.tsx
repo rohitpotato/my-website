@@ -6,8 +6,10 @@ import containerCss from "./Container.module.css";
 import Projects from "../Projects";
 import Blogs from "../Blogs";
 import Contact from "../Contact";
+import { useAppContext } from "../../context/AppContext";
 
 const Container: React.FC = () => {
+  const { footerText, footerEnabled } = useAppContext();
   return (
     <div>
       <Header />
@@ -18,6 +20,7 @@ const Container: React.FC = () => {
         <Blogs />
         <Contact />
       </div>
+      {footerEnabled && <div className={containerCss.footer}>{footerText}</div>}
     </div>
   );
 };

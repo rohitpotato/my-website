@@ -14,9 +14,10 @@ const Experience: React.FC = () => {
       />
       <div className={css.experienceTab}>
         <Tabs initialIndex={Number(activeExperienceTab) - 1}>
-          <TabList>
+          <TabList className={css.tabList}>
             {experience.map(({ logo }) => (
               <Tab
+                clasName={css.tab}
                 selectedStyles={{
                   borderTop: "2px solid var(--color-text-primary)",
                   borderRight: "2px solid var(--color-text-primary)",
@@ -29,19 +30,33 @@ const Experience: React.FC = () => {
             ))}
           </TabList>
           <TabPanels className={css.tabPanel}>
-            {experience.map(({ logo, company, designation, list }) => (
-              <TabPanel key={company} className={css.panel}>
-                <ul className={css.list}>
-                  {list.map((l) => (
-                    <li key={l}>
-                      <span style={{ color: "var(--color-text-primary)" }}>
-                        {l}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </TabPanel>
-            ))}
+            {experience.map(
+              ({ logo, company, designation, list, duration }) => (
+                <TabPanel key={company} className={css.panel}>
+                  <div>
+                    <div className={css.logo}>
+                      <Image
+                        src={logo}
+                        alt="company_logo"
+                        height={80}
+                        width={160}
+                      />
+                    </div>
+                    <div className={css.designation}>{designation}</div>
+                    <div className={css.duration}>{duration}</div>
+                    <ul className={css.list}>
+                      {list.map((l) => (
+                        <li key={l}>
+                          <span style={{ color: "var(--color-text-primary)" }}>
+                            {l}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </TabPanel>
+              )
+            )}
           </TabPanels>
         </Tabs>
       </div>

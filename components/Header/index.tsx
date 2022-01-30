@@ -5,12 +5,25 @@ import css from "./Header.module.css";
 import { links } from "../../constants";
 import { ThemeToggle } from "../ThemeToggle";
 import MobileMenu from "../MobileMenu";
+import { useAppContext } from "../../context/AppContext";
 
 const Header: React.FC = () => {
   const [isMobileMenuActive, setMobileMenuActive] = useState(false);
+  const { resumeLink, spotify } = useAppContext();
 
   const handleMobileMenuClick = () => {
     setMobileMenuActive((s) => !s);
+  };
+
+  const getLink = (type: string, original: string): string => {
+    const linkType = type.toLocaleLowerCase();
+    if (linkType === "resume") {
+      return resumeLink;
+    } else if (linkType === "spotify") {
+      return spotify;
+    }
+
+    return original;
   };
 
   return (
@@ -19,7 +32,7 @@ const Header: React.FC = () => {
         <div className={css.logo}>RK</div>
         <div className={css.links}>
           {links.map(({ name, link, target = "_self", class: className }) => (
-            <Link href={link} passHref key={name}>
+            <Link href={getLink(name, link)} passHref key={name}>
               <a
                 target={target}
                 className={[css.link, css[className]].join(" ")}

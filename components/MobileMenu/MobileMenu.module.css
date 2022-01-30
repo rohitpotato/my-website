@@ -38,4 +38,5 @@
   font-size: 3rem;
   background: none;
   border: none;
+  color: var(--color-text-primary);
 }

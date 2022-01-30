@@ -24,7 +24,10 @@ export interface configApiResponse {
   aboutMe: string;
   preferredTheme: "dark" | "light";
   footerText: string;
+  footerEnabled: boolean;
   activeExperienceTab: string | number;
+  resumeLink: string;
+  spotify: string;
   heroImage: string;
   contact: {
     linkedin: string;

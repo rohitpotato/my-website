@@ -47,7 +47,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1050px) {
   .container {
     padding: 2rem 2rem;
   }
@@ -56,7 +56,8 @@
 @media (max-width: 860px) {
   .experience,
   .blogs,
-  .projects {
+  .projects,
+  .spotify {
     display: none;
   }
 

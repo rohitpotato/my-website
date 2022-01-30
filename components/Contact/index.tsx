@@ -5,7 +5,7 @@ import css from "./Contact.module.css";
 
 const contactMap = {
   github: "/icons/github.svg",
-  linkedin: "icons/linkedin.svg",
+  linkedin: "/icons/linkedin.svg",
   twitter: "/icons/twitter.svg",
 };
 
@@ -35,12 +35,14 @@ const Contact: React.FC = () => {
                 className={css.contactButton}
                 rel="noreferrer"
               >
-                <Image
-                  height={32}
-                  width={32}
-                  alt="contact-icon"
-                  src={`/icons/${contactMap[key]}.svg`}
-                />
+                <div className={css.img}>
+                  <Image
+                    height={32}
+                    width={32}
+                    alt="contact-icon"
+                    src={`${contactMap[key]}`}
+                  />
+                </div>
               </a>
             ) : null;
           })}

@@ -25,6 +25,12 @@ const links = [
     link: "#contact",
     class: "contact",
   },
+  {
+    name: "Spotify",
+    link: "#spotify",
+    class: "spotify",
+    target: "_blank",
+  },
 ];
 
 const themes = {

@@ -3,6 +3,17 @@
   width: 60%;
 }
 
+.footer {
+  text-align: center;
+  color: var(--color-text-primary);
+  margin: 3rem 0;
+  background: var(--button-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 1.5rem;
+}
+
 @media (max-width: 1140px) {
   .heroContainer {
     width: 80%;
