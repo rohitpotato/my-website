@@ -29,6 +29,7 @@ export interface configApiResponse {
   resumeLink: string;
   spotify: string;
   heroImage: string;
+  metaImage: string;
   contact: {
     linkedin: string;
     twitter: string;
