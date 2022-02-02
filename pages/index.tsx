@@ -1,5 +1,6 @@
 import type { GetStaticPropsResult, NextPage } from "next";
 import Container from "../components/Container";
+import SEO from "../components/SEO";
 import { AppProvider } from "../context/AppContext";
 import { IndexPageProps } from "../types";
 
@@ -8,6 +9,7 @@ const Home: NextPage<IndexPageProps> = (props) => {
   return (
     <div>
       <AppProvider values={data}>
+        <SEO />
         <Container />
       </AppProvider>
     </div>
